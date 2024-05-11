@@ -42,8 +42,8 @@ fun SplashScreen3(navController: NavController = NavController(context = LocalCo
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .align(Alignment.CenterStart)
-
+                    .align(Alignment.CenterStart),
+                //horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.img1),
@@ -58,7 +58,7 @@ fun SplashScreen3(navController: NavController = NavController(context = LocalCo
                 Text(
                     text = stringResource(id = R.string.app_tagline3),
                     color = Color.Black,
-                    modifier = Modifier.padding(start = 25.dp),
+                    modifier = Modifier.padding(start = 35.dp),
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -66,7 +66,7 @@ fun SplashScreen3(navController: NavController = NavController(context = LocalCo
             Row(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .padding(16.dp)
+                    .padding(16.dp),
             ) {
                 Icon(
                     imageVector = Icons.Filled.ArrowForward,

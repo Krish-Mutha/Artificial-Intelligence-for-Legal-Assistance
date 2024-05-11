@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -35,6 +34,7 @@ import com.example.artificialintelligenceforlegalassistance.navigation.AilaScree
 @Preview
 @Composable
 fun SplashScreen(navController: NavController = NavController(context = LocalContext.current)) {
+
     Surface(color = MaterialTheme.colorScheme.background) {
         Box(
             modifier = Modifier
@@ -48,7 +48,7 @@ fun SplashScreen(navController: NavController = NavController(context = LocalCon
 
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.img2),
+                    painter = painterResource(id = R.drawable.labour),
                     contentDescription = "Splash Screen Image",
                     modifier = Modifier
                         .padding(top = 16.dp, start =50.dp)
@@ -60,7 +60,7 @@ fun SplashScreen(navController: NavController = NavController(context = LocalCon
                 Text(
                     text = stringResource(id =R.string.app_tagline1),
                     color = Color.Black,
-                    modifier = Modifier.padding(start =55.dp),
+                    modifier = Modifier.padding(start =38.dp),
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -75,12 +75,12 @@ fun SplashScreen(navController: NavController = NavController(context = LocalCon
                     contentDescription = "Next",
                     modifier = Modifier
                         .padding(16.dp)
-                        .clickable {  navController.navigate(AilaScreens.SplashScreen3.name) }
+                        .clickable {  navController.navigate(AilaScreens.SplashScreen2.name) }
                 )
             }
 
             IconButton(
-                onClick = {  navController.navigate(AilaScreens.SearchScreen.name) },
+                onClick = {  navController.navigate(AilaScreens.LoginScreen.name) },
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .padding(16.dp)
@@ -89,4 +89,5 @@ fun SplashScreen(navController: NavController = NavController(context = LocalCon
             }
         }
     }
+
 }

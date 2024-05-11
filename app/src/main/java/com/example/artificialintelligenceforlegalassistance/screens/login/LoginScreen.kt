@@ -52,13 +52,13 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginScreenViewMode
             if(showLoginForm.value){
                 AuthForm(){email,password ->
                     viewModel.signInFireAuth(email, password = password){
-                        navController.navigate(AilaScreens.RightsScreen.name)
+                        navController.navigate(AilaScreens.HomeScreen.name)
                     }
                 }
             }else{
                 AuthForm(loading = false,isCreateAccount = true){email,password ->
                     viewModel.createUserFireAuth(email, password = password){
-                        navController.navigate(AilaScreens.RightsScreen.name)
+                        navController.navigate(AilaScreens.HomeScreen.name)
                     }
                 }
             }
@@ -78,7 +78,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginScreenViewMode
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
+
 @Composable
 fun AuthForm(loading: Boolean = false, isCreateAccount: Boolean = false, onDone: (String,String) -> Unit = {email,password ->}){
     val email = rememberSaveable {

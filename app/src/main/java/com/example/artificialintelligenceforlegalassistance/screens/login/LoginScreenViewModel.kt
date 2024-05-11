@@ -58,8 +58,4 @@ class LoginScreenViewModel: ViewModel() {
         val user = MUser(userId = userId.toString(), displayName = displayName,id = null).toMap()
         FirebaseFirestore.getInstance().collection("users").add(user)
     }
-
-
-
-
 }
