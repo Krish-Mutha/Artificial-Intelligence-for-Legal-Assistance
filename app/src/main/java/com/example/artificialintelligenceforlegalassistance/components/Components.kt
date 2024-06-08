@@ -191,13 +191,15 @@ fun AilaAppBar(
 
 
 @Composable
-fun CircleButtons(image: Int, text: String) {
+fun CircleButtons(image: Int, text: String,onPress: () -> Unit = {}) {
     Box(
         modifier = Modifier
             .size(150.dp)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().clickable {
+                onPress.invoke()
+            },
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
@@ -237,16 +239,19 @@ fun LawChatWithAI(
 fun CardComp(
     modifier: Modifier = Modifier,
     image: Int,
-    text: String
+    text: String,
+    onPress: () -> Unit = {}
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .height(130.dp)
-            .clickable { },
+            .height(130.dp),
         shape = RoundedCornerShape(8.dp)
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.clickable {
+                onPress.invoke()
+            }) {
                 Image(
                     painter = painterResource(id = image),
                     contentDescription = "Law Chat with AI",

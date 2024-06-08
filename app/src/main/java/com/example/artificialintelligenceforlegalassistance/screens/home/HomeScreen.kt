@@ -46,17 +46,15 @@ fun HomeScreen(navController: NavController) {
                 .padding(12.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "DashBoard", color = Color.Black, fontSize = 30.sp)
-            Spacer(modifier = Modifier.size(20.dp))
+            Text(text = "DashBoard", color = Color.Black, fontSize = 22.sp)
+            Spacer(modifier = Modifier.size(15.dp))
             LawChatWithAI()
-            Spacer(modifier = Modifier.height(20.dp))
-            MostUsedCategories()
-
+            Spacer(modifier = Modifier.height(15.dp))
+            MostUsedCategories(navController)
             //AilaBottomAppBar(navController)
             }
         Column(modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Bottom) {
-
             AilaBottomAppBar(navController)
         }
         }
@@ -64,7 +62,7 @@ fun HomeScreen(navController: NavController) {
 
 
 @Composable
-fun MostUsedCategories() {
+fun MostUsedCategories(navController: NavController) {
     LazyColumn {
         item {
             Text(text ="Most Used Categories",color = Color.Black, fontSize = 16.sp)
@@ -74,12 +72,15 @@ fun MostUsedCategories() {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 item {
-                    Column {
+                    Column{
                         CardComp(
                             image = R.drawable.img2,
                             modifier = Modifier.width(100.dp),
-                            text = "Family/Divorce"
-                        )
+                            text = "Family/Divorce",
+
+                        ){
+                                navController.navigate(AilaScreens.SettingsScreen.name)
+                        }
                     }
                 }
                 item {
@@ -91,7 +92,9 @@ fun MostUsedCategories() {
                             image = R.drawable.img1,
                             modifier = Modifier.width(100.dp),
                             text = "Real Estate/Tenant Rig.."
-                        )
+                        ){
+                            navController.navigate(AilaScreens.SettingsScreen.name)
+                        }
                     }
                 }
                 item {
@@ -104,7 +107,9 @@ fun MostUsedCategories() {
                             modifier = Modifier.width(100.dp),
                             text = "Labour Law/" +
                                     "Discrimin..."
-                        )
+                        ){
+                            navController.navigate(AilaScreens.SettingsScreen.name)
+                        }
                     }
                 }
                 item {
@@ -116,7 +121,9 @@ fun MostUsedCategories() {
                             image = R.drawable.consumer,
                             modifier = Modifier.width(100.dp),
                             text = "Consumer Law/ Fraud"
-                        )
+                        ){
+                            navController.navigate(AilaScreens.SettingsScreen.name)
+                        }
                     }
                 }
             }
@@ -134,19 +141,30 @@ fun MostUsedCategories() {
                 Row(
                     modifier = Modifier.width(300.dp),
                 ) {
-                    CircleButtons(image = R.drawable.img2, text = "Family Law")
+                    CircleButtons(image = R.drawable.img2, text = "Family Law"){
+                        navController.navigate(AilaScreens.SettingsScreen.name)
+                    }
                     Spacer(modifier = Modifier.weight(1f))
-                    CircleButtons(image = R.drawable.img1, text = "Real Estate")
+                    CircleButtons(image = R.drawable.img1, text = "Real Estate"){
+                        navController.navigate(AilaScreens.SettingsScreen.name)
+                    }
                 }
                 Row(
                     modifier = Modifier
                         .width(300.dp)
                         .padding(top = 10.dp)
                 ) {
-                    CircleButtons(image = R.drawable.labour, text = "Labour Law")
+                    CircleButtons(image = R.drawable.labour, text = "Labour Law"){
+                        navController.navigate(AilaScreens.SettingsScreen.name)
+                    }
                     Spacer(modifier = Modifier.weight(1f))
-                    CircleButtons(image = R.drawable.consumer, text = "Consumer Law")
+                    CircleButtons(image = R.drawable.consumer, text = "Consumer Law"){
+                        navController.navigate(AilaScreens.SettingsScreen.name)
+
+
+                    }
                 }
+
             }
         }
     }
