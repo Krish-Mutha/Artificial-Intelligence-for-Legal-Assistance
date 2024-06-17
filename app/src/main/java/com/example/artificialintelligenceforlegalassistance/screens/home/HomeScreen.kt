@@ -79,7 +79,7 @@ fun MostUsedCategories(navController: NavController) {
                             text = "Family/Divorce",
 
                         ){
-                                navController.navigate(AilaScreens.SettingsScreen.name)
+                                navController.navigate(AilaScreens.FamilySubcategoriesScreen.name)
                         }
                     }
                 }
@@ -93,7 +93,7 @@ fun MostUsedCategories(navController: NavController) {
                             modifier = Modifier.width(100.dp),
                             text = "Real Estate/Tenant Rig.."
                         ){
-                            navController.navigate(AilaScreens.SettingsScreen.name)
+                            navController.navigate(AilaScreens.RealEstateSubcategoriesScreen.name)
                         }
                     }
                 }
@@ -108,7 +108,7 @@ fun MostUsedCategories(navController: NavController) {
                             text = "Labour Law/" +
                                     "Discrimin..."
                         ){
-                            navController.navigate(AilaScreens.SettingsScreen.name)
+                            navController.navigate(AilaScreens.LabourSubcategoriesScreen.name)
                         }
                     }
                 }
@@ -122,7 +122,7 @@ fun MostUsedCategories(navController: NavController) {
                             modifier = Modifier.width(100.dp),
                             text = "Consumer Law/ Fraud"
                         ){
-                            navController.navigate(AilaScreens.SettingsScreen.name)
+                            navController.navigate(AilaScreens.ConsumerSubcategoriesScreen.name)
                         }
                     }
                 }
@@ -142,11 +142,11 @@ fun MostUsedCategories(navController: NavController) {
                     modifier = Modifier.width(300.dp),
                 ) {
                     CircleButtons(image = R.drawable.img2, text = "Family Law"){
-                        navController.navigate(AilaScreens.SettingsScreen.name)
+                        navController.navigate(AilaScreens.FamilySubcategoriesScreen.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
                     CircleButtons(image = R.drawable.img1, text = "Real Estate"){
-                        navController.navigate(AilaScreens.SettingsScreen.name)
+                        navController.navigate(AilaScreens.RealEstateSubcategoriesScreen.name)
                     }
                 }
                 Row(
@@ -155,11 +155,11 @@ fun MostUsedCategories(navController: NavController) {
                         .padding(top = 10.dp)
                 ) {
                     CircleButtons(image = R.drawable.labour, text = "Labour Law"){
-                        navController.navigate(AilaScreens.SettingsScreen.name)
+                        navController.navigate(AilaScreens.LabourSubcategoriesScreen.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
                     CircleButtons(image = R.drawable.consumer, text = "Consumer Law"){
-                        navController.navigate(AilaScreens.SettingsScreen.name)
+                        navController.navigate(AilaScreens.ConsumerSubcategoriesScreen.name)
 
 
                     }

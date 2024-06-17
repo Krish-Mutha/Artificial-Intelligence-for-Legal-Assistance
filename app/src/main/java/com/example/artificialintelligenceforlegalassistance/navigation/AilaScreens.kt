@@ -11,8 +11,12 @@ enum class AilaScreens {
     SearchScreen,
     SettingsScreen,
     StatsScreen,
-    ChatScreen;
-    //ClickScreen;
+    ChatScreen,
+    RightDetailsScreen,
+    FamilySubcategoriesScreen,
+    RealEstateSubcategoriesScreen,
+    LabourSubcategoriesScreen,
+    ConsumerSubcategoriesScreen;
     companion object {
         fun fromRoute(route: String?): AilaScreens
         =when(route?.substringBefore("/")){
@@ -27,8 +31,12 @@ enum class AilaScreens {
             SettingsScreen.name -> SettingsScreen
             StatsScreen.name -> StatsScreen
             ChatScreen.name -> ChatScreen
-            //ClickScreen.name-> ClickScreen
-            null -> HomeScreen
+            RightDetailsScreen.name->RightDetailsScreen
+            FamilySubcategoriesScreen.name->FamilySubcategoriesScreen
+            RealEstateSubcategoriesScreen.name->RealEstateSubcategoriesScreen
+            LabourSubcategoriesScreen.name->LabourSubcategoriesScreen
+            ConsumerSubcategoriesScreen.name->ConsumerSubcategoriesScreen
+                null -> HomeScreen
             else -> throw IllegalArgumentException("Route $route is not recognized")
         }
     }

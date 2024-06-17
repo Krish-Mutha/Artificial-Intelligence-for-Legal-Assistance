@@ -37,6 +37,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
@@ -49,6 +50,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -57,13 +59,16 @@ import com.example.artificialintelligenceforlegalassistance.navigation.AilaScree
 
 @Composable
 fun AilaLogo(modifier: Modifier = Modifier) {
-    Text(
+    Column(horizontalAlignment = CenterHorizontally){
+        Text(
         modifier = modifier
             .padding(15.dp),
         text = "Artificial intelligence for legal Assistance ",
         style = MaterialTheme.typography.headlineLarge,
-        color = Color(0xFFAF1BC9)
+        color = Color(0xFFAF1BC9),
+            textAlign = TextAlign.Center
     )
+    }
 }
 
 @Composable
@@ -197,10 +202,13 @@ fun CircleButtons(image: Int, text: String,onPress: () -> Unit = {}) {
             .size(150.dp)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().clickable {
-                onPress.invoke()
-            },
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable {
+                    onPress.invoke()
+                },
+            horizontalAlignment = Alignment.CenterHorizontally,
+
         ) {
             Image(
                 painter = painterResource(id = image),
@@ -209,11 +217,11 @@ fun CircleButtons(image: Int, text: String,onPress: () -> Unit = {}) {
                     .size(110.dp)
                     .clip(CircleShape)
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(1.dp))
             Text(
                 text = text,
-                color = Color.Black,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
+                color = Color(0xFFAF1BC9),
+                modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }
     }
@@ -227,11 +235,13 @@ fun LawChatWithAI(
     modifier: Modifier = Modifier,
 ) {
     Column(  modifier = modifier
-           .fillMaxWidth()
-          .height(120.dp)) {
+        .fillMaxWidth()
+        .height(120.dp)) {
         Image(painter = painterResource(id = R.drawable.lcwa),
             contentDescription ="LCWA",
-            modifier= Modifier.fillMaxWidth().height(120.dp))
+            modifier= Modifier
+                .fillMaxWidth()
+                .height(120.dp))
     }
 }
 
@@ -279,21 +289,21 @@ fun AilaBottomAppBar(navController: NavController) {
                 IconButton(onClick = { navController.navigate(AilaScreens.HomeScreen.name) }) {
                     Icon(Icons.Filled.Home, contentDescription = "Localized description")
                 }
-                Spacer(modifier = Modifier.width(16.dp)) // Spacer for even distribution
+                Spacer(modifier = Modifier.width(16.dp))
                 IconButton(onClick = { navController.navigate(AilaScreens.ChatScreen.name) }) {
                     Icon(
                         Icons.Filled.ChatBubble,
                         contentDescription = "Localized description",
                     )
                 }
-                Spacer(modifier = Modifier.width(16.dp)) // Spacer for even distribution
+                Spacer(modifier = Modifier.width(16.dp))
                 IconButton(onClick = { navController.navigate(AilaScreens.SearchScreen.name) }) {
                     Icon(
                         Icons.Filled.Search,
                         contentDescription = "Localized description",
                     )
                 }
-                Spacer(modifier = Modifier.width(16.dp)) // Spacer for even distribution
+                Spacer(modifier = Modifier.width(16.dp))
                 IconButton(onClick = { navController.navigate(AilaScreens.SettingsScreen.name) }) {
                     Icon(
                         Icons.Filled.Settings,

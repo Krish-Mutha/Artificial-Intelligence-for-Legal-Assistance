@@ -66,7 +66,7 @@ fun PreSplashScreen(navController: NavHostController) {
                 modifier = Modifier.fillMaxWidth() // Adjust sizing as needed
             )
 
-            Spacer(modifier = Modifier.height(15.dp))
+            //Spacer(modifier = Modifier.height(15.dp))
             Text(
                 text = "\"AI's here to help you.\"",
                 style = MaterialTheme.typography.headlineSmall,

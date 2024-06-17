@@ -3,13 +3,23 @@ package com.example.artificialintelligenceforlegalassistance.navigation
 
 
 import PreSplashScreen
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import androidx.core.content.res.FontResourcesParserCompat.FamilyResourceEntry
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.artificialintelligenceforlegalassistance.screens.chat.ChatsScreen
+import com.example.artificialintelligenceforlegalassistance.screens.home.ConsumerSubcategoriesScreen
+import com.example.artificialintelligenceforlegalassistance.screens.home.FamilySubcategoriesScreen
 import com.example.artificialintelligenceforlegalassistance.screens.home.HomeScreen
+import com.example.artificialintelligenceforlegalassistance.screens.home.LabourSubcategoriesScreen
+import com.example.artificialintelligenceforlegalassistance.screens.home.RealEstateSubcategoriesScreen
 import com.example.artificialintelligenceforlegalassistance.screens.login.LoginScreen
+import com.example.artificialintelligenceforlegalassistance.screens.search.RightDetailsScreen
 import com.example.artificialintelligenceforlegalassistance.screens.search.SearchScreen
 import com.example.artificialintelligenceforlegalassistance.screens.settings.SettingsScreen
 import com.example.artificialintelligenceforlegalassistance.screens.splash.SplashScreen
@@ -44,7 +54,7 @@ fun AilaNavigation() {
             LoginScreen(navController)
         }
         composable(AilaScreens.ChatScreen.name){
-            ChatsScreen(navController)
+            ChatsScreen(navController,paddingValues = PaddingValues(16.dp))
         }
         composable(AilaScreens.SettingsScreen.name){
             SettingsScreen(navController)
@@ -52,6 +62,29 @@ fun AilaNavigation() {
         composable(AilaScreens.SearchScreen.name){
             SearchScreen(navController)
         }
+        composable(
+            route = "${AilaScreens.RightDetailsScreen.name}/{article}",
+            arguments = listOf(navArgument("article") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val article = backStackEntry.arguments?.getString("article") ?: ""
+            RightDetailsScreen(navController, article)
+        }
+        composable(AilaScreens.FamilySubcategoriesScreen.name){
+            FamilySubcategoriesScreen(navController)
+        }
+        composable(AilaScreens.RealEstateSubcategoriesScreen.name){
+            RealEstateSubcategoriesScreen(navController)
+        }
+        composable(AilaScreens.LabourSubcategoriesScreen.name){
+            LabourSubcategoriesScreen(navController)
+        }
+        composable(AilaScreens.ConsumerSubcategoriesScreen.name){
+            ConsumerSubcategoriesScreen(navController)
+        }
 
     }
 }
+
+
+
+
