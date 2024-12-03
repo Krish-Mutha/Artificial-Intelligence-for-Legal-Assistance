@@ -49,7 +49,7 @@ fun SplashScreen3(navController: NavController = NavController(context = LocalCo
                     painter = painterResource(id = R.drawable.img1),
                     contentDescription = "Splash Screen Image",
                     modifier = Modifier
-                        .padding(top = 16.dp, start =50.dp)
+                        .padding(top = 16.dp, start =30.dp)
                         .size(300.dp)
                 )
 
@@ -58,7 +58,7 @@ fun SplashScreen3(navController: NavController = NavController(context = LocalCo
                 Text(
                     text = stringResource(id = R.string.app_tagline3),
                     color = Color.Black,
-                    modifier = Modifier.padding(start = 35.dp),
+                    modifier = Modifier.padding(start = 15.dp),
                     fontWeight = FontWeight.Bold
                 )
             }

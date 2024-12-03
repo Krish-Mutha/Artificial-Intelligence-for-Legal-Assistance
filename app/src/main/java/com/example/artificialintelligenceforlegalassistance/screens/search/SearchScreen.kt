@@ -60,7 +60,7 @@ fun SearchScreen(navController: NavHostController) {
 
     Scaffold(topBar = {
         AilaAppBar(
-            title = "Search Your Right",
+            title = "   Search Your Right",
             icon = Icons.Default.ArrowBack,
             navController = navController,
             showProfile = false

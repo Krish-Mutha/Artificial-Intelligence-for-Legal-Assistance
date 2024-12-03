@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -45,7 +46,6 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginScreenViewMode
     val showLoginForm = rememberSaveable{
         mutableStateOf(true)
     }
-
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Top) {
             AilaLogo()
@@ -62,9 +62,8 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginScreenViewMode
                     }
                 }
             }
-
         }
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(40.dp))
         Row(modifier = Modifier.height(15.dp), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
             val text = if(showLoginForm.value) "Sign up" else "Login"
             Text(text = "New User?")
@@ -77,7 +76,6 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginScreenViewMode
         }
     }
 }
-
 
 @Composable
 fun AuthForm(loading: Boolean = false, isCreateAccount: Boolean = false, onDone: (String,String) -> Unit = {email,password ->}){
@@ -130,6 +128,7 @@ fun AuthForm(loading: Boolean = false, isCreateAccount: Boolean = false, onDone:
             onDone(email.value.trim(),password.value.trim())
             keyboardController?.hide()
         }
+
     }
 }
 
@@ -138,7 +137,7 @@ fun SubmitButton(textId: String, loading: Boolean, validInputs: Boolean, onClick
     Button( onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(3.dp),
+            .padding(9.dp),
         enabled = !loading && validInputs,
         shape = CircleShape
     ) {

@@ -1,7 +1,6 @@
-package com.example.artificialintelligenceforlegalassistance.screens.home
+package com.example.artificialintelligenceforlegalassistance.screens.home.Consumer
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,15 +27,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.artificialintelligenceforlegalassistance.R
 import com.example.artificialintelligenceforlegalassistance.components.AilaAppBar
-import com.example.artificialintelligenceforlegalassistance.components.AilaBottomAppBar
 import com.example.artificialintelligenceforlegalassistance.components.AilaLogo
 import com.example.artificialintelligenceforlegalassistance.components.CircleButtons
-import com.example.artificialintelligenceforlegalassistance.components.LawChatWithAI
 import com.example.artificialintelligenceforlegalassistance.navigation.AilaScreens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FamilySubcategoriesScreen(navController: NavController) {
+fun ConsumerSubcategoriesScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -52,22 +49,25 @@ fun FamilySubcategoriesScreen(navController: NavController) {
                 navController.navigate(AilaScreens.HomeScreen.name)
             }
         }) {it->
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(it),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                //Divider(Modifier.width(375.dp))
+                //Spacer(modifier = Modifier.size(15.dp))
                 AilaLogo()
-                //Text(text = "AILA", color = Color.Black, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+//                Text(text = "AILA", color = Color.Black, fontSize = 24.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.size(15.dp))
-                Text(text = "Ask Anything & get your consultation", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(text = "Ask Anything & get your consultation", fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.size(15.dp))
-                CircleButtons(image = R.drawable.img2, text = "Family Law")
+                CircleButtons(image = R.drawable.consumer, text = "Consumer Law")
                 Spacer(modifier = Modifier.height(15.dp))
                 Text(text = "Subcategories", color = Color.Black, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(15.dp))
-                FamilyScreen(navController)
+                ConsumerScreen(navController)
                 //AilaBottomAppBar(navController)
             }
 
@@ -76,7 +76,7 @@ fun FamilySubcategoriesScreen(navController: NavController) {
 }
 
 @Composable
-fun FamilyScreen(navController: NavController) {
+fun  ConsumerScreen(navController: NavController) {
     LazyColumn {
         item {
             Spacer(modifier = Modifier.height(20.dp))
@@ -90,12 +90,12 @@ fun FamilyScreen(navController: NavController) {
                 Row(
                     modifier = Modifier.width(300.dp),
                 ) {
-                    CircleButtons(image = R.drawable.img2, text = "Divorce"){
-                        //navController.navigate(AilaScreens.FamilySubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.img2, text = "Product returns"){
+                        navController.navigate(AilaScreens.Products.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
-                    CircleButtons(image = R.drawable.img1, text = "Child Custody"){
-                        //navController.navigate(AilaScreens.RealEstateSubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.img1, text = "Product warranties"){
+                        navController.navigate(AilaScreens.ProductsW.name)
                     }
                 }
                 Row(
@@ -103,12 +103,12 @@ fun FamilyScreen(navController: NavController) {
                         .width(300.dp)
                         .padding(top = 10.dp)
                 ) {
-                    CircleButtons(image = R.drawable.labour, text = "Property Division"){
-                        //navController.navigate(AilaScreens.LabourSubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.labour, text = "Consumer rights"){
+                        navController.navigate(AilaScreens.ConsumerRights.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
-                    CircleButtons(image = R.drawable.consumer, text = "Alimony"){
-                        //navController.navigate(AilaScreens.ConsumerSubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.consumer, text = "Fraud"){
+                        navController.navigate(AilaScreens.Fraud.name)
                     }
                 }
             }

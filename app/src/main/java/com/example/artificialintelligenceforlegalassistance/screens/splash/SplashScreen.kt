@@ -51,7 +51,7 @@ fun SplashScreen(navController: NavController = NavController(context = LocalCon
                     painter = painterResource(id = R.drawable.labour),
                     contentDescription = "Splash Screen Image",
                     modifier = Modifier
-                        .padding(top = 16.dp, start =50.dp)
+                        .padding(top = 16.dp, start =30.dp)
                         .size(300.dp)
                 )
 

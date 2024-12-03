@@ -1,4 +1,4 @@
-package com.example.artificialintelligenceforlegalassistance.screens.home
+package com.example.artificialintelligenceforlegalassistance.screens.home.family
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -33,7 +33,7 @@ import com.example.artificialintelligenceforlegalassistance.navigation.AilaScree
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LabourSubcategoriesScreen(navController: NavController) {
+fun FamilySubcategoriesScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -49,26 +49,22 @@ fun LabourSubcategoriesScreen(navController: NavController) {
                 navController.navigate(AilaScreens.HomeScreen.name)
             }
         }) {it->
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(it),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                //Divider(Modifier.width(375.dp))
-                //Spacer(modifier = Modifier.size(15.dp))
+
                 AilaLogo()
-                //Text(text = "AILA", color = Color.Black, fontSize = 24.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.size(15.dp))
-                Text(text = "Ask Anything & get your consultation", fontWeight = FontWeight.Bold)
+                Text(text = "Ask Anything & get your consultation", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 Spacer(modifier = Modifier.size(15.dp))
-                CircleButtons(image = R.drawable.labour, text = "Labour Law")
+                CircleButtons(image = R.drawable.img2, text = "Family Law")
                 Spacer(modifier = Modifier.height(15.dp))
                 Text(text = "Subcategories", color = Color.Black, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(15.dp))
-                LabourScreen(navController)
-                //AilaBottomAppBar(navController)
+                FamilyScreen(navController)
             }
 
         }
@@ -76,7 +72,7 @@ fun LabourSubcategoriesScreen(navController: NavController) {
 }
 
 @Composable
-fun LabourScreen(navController: NavController) {
+fun FamilyScreen(navController: NavController) {
     LazyColumn {
         item {
             Spacer(modifier = Modifier.height(20.dp))
@@ -90,12 +86,12 @@ fun LabourScreen(navController: NavController) {
                 Row(
                     modifier = Modifier.width(300.dp),
                 ) {
-                    CircleButtons(image = R.drawable.img2, text ="Termination"){
-                        //navController.navigate(AilaScreens.FamilySubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.img2, text = "Divorce"){
+                        navController.navigate(AilaScreens.familyLaws.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
-                    CircleButtons(image = R.drawable.img1, text = "Workplace discr..."){
-                        //navController.navigate(AilaScreens.RealEstateSubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.img1, text = "Child Custody"){
+                        navController.navigate(AilaScreens.ChildCustody.name)
                     }
                 }
                 Row(
@@ -103,12 +99,12 @@ fun LabourScreen(navController: NavController) {
                         .width(300.dp)
                         .padding(top = 10.dp)
                 ) {
-                    CircleButtons(image = R.drawable.labour, text = "Contracts & terms"){
-                        //navController.navigate(AilaScreens.LabourSubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.labour, text = "Property Division"){
+                        navController.navigate(AilaScreens.property_div.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
-                    CircleButtons(image = R.drawable.consumer, text = "Worker rights"){
-                        //navController.navigate(AilaScreens.ConsumerSubcategoriesScreen.name)
+                    CircleButtons(image = R.drawable.consumer, text = "Alimony"){
+                        navController.navigate(AilaScreens.Alimony.name)
                     }
                 }
             }

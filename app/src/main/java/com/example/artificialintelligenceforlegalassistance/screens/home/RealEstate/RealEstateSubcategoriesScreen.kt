@@ -1,4 +1,4 @@
-package com.example.artificialintelligenceforlegalassistance.screens.home
+package com.example.artificialintelligenceforlegalassistance.screens.home.RealEstate
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -92,11 +92,11 @@ fun  RealEstateScreen(navController: NavController) {
                     modifier = Modifier.width(300.dp),
                 ) {
                     CircleButtons(image = R.drawable.img2, text = "Tenant Rights"){
-                        //navController.navigate(AilaScreens.FamilySubcategoriesScreen.name)
+                        navController.navigate(AilaScreens.Tenant.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
                     CircleButtons(image = R.drawable.img1, text = "Real estate law"){
-                        //navController.navigate(AilaScreens.RealEstateSubcategoriesScreen.name)
+                        navController.navigate(AilaScreens.RealEstate.name)
                     }
                 }
                 Row(
@@ -105,7 +105,7 @@ fun  RealEstateScreen(navController: NavController) {
                         .padding(top = 10.dp)
                 ) {
                     CircleButtons(image = R.drawable.labour, text = "Neighbor disputes "){
-                        //navController.navigate(AilaScreens.LabourSubcategoriesScreen.name)
+                        navController.navigate(AilaScreens.Neighbour.name)
                     }
                     Spacer(modifier = Modifier.weight(1f))
 

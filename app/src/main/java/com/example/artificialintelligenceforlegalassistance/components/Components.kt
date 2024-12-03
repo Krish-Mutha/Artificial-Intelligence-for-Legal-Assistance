@@ -1,6 +1,8 @@
 package com.example.artificialintelligenceforlegalassistance.components
 
+
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -56,13 +58,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.artificialintelligenceforlegalassistance.R
 import com.example.artificialintelligenceforlegalassistance.navigation.AilaScreens
-
 @Composable
 fun AilaLogo(modifier: Modifier = Modifier) {
     Column(horizontalAlignment = CenterHorizontally){
         Text(
         modifier = modifier
-            .padding(15.dp),
+            .padding(1.dp),
         text = "Artificial intelligence for legal Assistance ",
         style = MaterialTheme.typography.headlineLarge,
         color = Color(0xFFAF1BC9),
@@ -190,7 +191,7 @@ fun AilaAppBar(
 
 
         },
-        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent)
+//        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent)
     )
 }
 
@@ -248,39 +249,50 @@ fun LawChatWithAI(
 @Composable
 fun CardComp(
     modifier: Modifier = Modifier,
-    image: Int,
+    image: Int? = null,
     text: String,
     onPress: () -> Unit = {}
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .height(130.dp),
+            .height(140.dp),
         shape = RoundedCornerShape(8.dp)
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .clickable {
+                    onPress.invoke()
+                }
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable {
-                onPress.invoke()
-            }) {
+            if (image != null) {
                 Image(
                     painter = painterResource(id = image),
                     contentDescription = "Law Chat with AI",
-                    modifier= Modifier
+                    modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
                 )
-                Text(text = text,modifier = Modifier.padding(start = 5.dp))
+            } else {
+                Box(
+                    modifier = Modifier
+                        .height(80.dp)
+                        .fillMaxWidth()
+                        .background(Color.Gray)
+                )
             }
+            Text(text = text, modifier = Modifier.padding(start = 5.dp))
+        }
     }
 }
-
 
 
 
 @Composable
 fun AilaBottomAppBar(navController: NavController) {
     Divider()
-    BottomAppBar(containerColor = Color.White,
+    BottomAppBar(containerColor = Color.White, modifier =  Modifier.height(50.dp),
         content = {
             Row(
                 modifier = Modifier.fillMaxWidth(),
